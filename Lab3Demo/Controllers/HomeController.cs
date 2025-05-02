@@ -23,6 +23,24 @@ public class HomeController : Controller
         return View();
     }
 
+    public ViewResult Details()
+    {
+        //String string data
+        ViewData["Title"] = "Student Details Page";
+        ViewData["Header"] = "Student Details";
+        Student student = new Student()
+        {
+            StudentId = 101,
+            Name = "James",
+            Branch = "CSE",
+            Section = "A",
+            Gender = "Male"
+        };
+        //storing Student Data
+        ViewData["Student"] = student;
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
